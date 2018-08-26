@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <title>NEDx Grapher</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://blog.js.cytoscape.org/public/demos/getting-started/cytoscape.js"></script> <!-- Cytoscape -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    <!-- jQuery -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>  <!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"> <!-- Bootstrap -->
+  	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> <!-- Icons -->
+
+</head>
+
+<body >
+    <div class="d-inline-flex  flex-column m-0 p-3"  style="z-index: 4; background-color: rgba(250,250,250, 0.7); max-height: 100%; overflow-y: auto;">
+
+     <!-- TAB BUTTONS -->       
+     <ul class="nav nav-pills  float-left ml-3" id="pills-tab" role="tablist" style="z-index: 5;">
+      <li class="nav-item"><a class="nav-link small active" data-toggle="pill" href="#info"><i class="fa fa-info"> </i></a></li>
+      <li class="nav-item"><a id="dataButton" class="nav-link small" data-toggle="pill" href="#network"><i class="fa fa-share-alt"> </i></a></li>
+      <li class="nav-item"><a class="nav-link small" data-toggle="pill" href="#empty"><i class="fa fa-eye-slash"> </i></a></li>
+    </ul>
+
+    <!-- INFO ZONE -->
+    <div class="tab-content " id="pills-tabContent">
+      <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
+            <h1 id="title" class="text-center" >Network Name</h1>
+            <p id="description" class="text-center">Infor about my network. asdf a;sdlf aowjrigo jarigoj akg klaslgjl asldgj aklschjasdkj fkaworgut ow;ijgl jkdhlgkadjskf kas;dnf aul;gj mladjvm;a slkmg jlanl asm lkasmg k;aslmk asnjglasdof nasjg wRUIHGowiurhgisu oilhgjs iofljkgnsdfjbm,ncxl kh nsdlkjcg,mnalkfjg nkjl bnsdlckgm, ahsdf audiof jaosidhf uaiosdhfu aisodfhu laisduf nliasdfn laisudnf aliusdh uialsdhfu a</p>
+
+      </div>
+      <div class="tab-pane fade" id="network" role="tabpanel" aria-labelledby="pills-profile-tab">
+        <h2 class="pt-1">Nodes/Edges</h2><hr class="mt-0">
+        <div id="data"></div>  
+      </div>
+      <div class="tab-pane fade" id="empty" role="tabpanel" aria-labelledby="pills-contact-tab"></div>
+    </div>        
+        
+
+        
+    </div>
+    <!-- Cytoscape Viewer  -->
+    <div id="cy" style="width: 100%; height: 100%; position: absolute; z-index: -1; top: 0px; left: 0px;"></div> 
+</body>
+</html>
+
+
+
+
