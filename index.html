@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <title>NEDx Grapher</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://blog.js.cytoscape.org/public/demos/getting-started/cytoscape.js"></script> <!-- Cytoscape -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    <!-- jQuery -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>  <!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"> <!-- Bootstrap -->
+  	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> <!-- Icons -->
+
+</head>
+
+<body >
+    <div class="d-inline-flex  flex-column m-0 p-3"  style="z-index: 4; background-color: rgba(250,250,250, 0.7); max-height: 100%; overflow-y: auto;">
+
+     <!-- TAB BUTTONS -->       
+     <ul class="nav nav-pills  float-left ml-3" id="pills-tab" role="tablist" style="z-index: 5;">
+      <li class="nav-item"><a class="nav-link small active" data-toggle="pill" href="#info"><i class="fa fa-info"> </i></a></li>
+      <li class="nav-item"><a id="dataButton" class="nav-link small" data-toggle="pill" href="#network"><i class="fa fa-share-alt"> </i></a></li>
+      <li class="nav-item"><a class="nav-link small" data-toggle="pill" href="#empty"><i class="fa fa-eye-slash"> </i></a></li>
+    </ul>
+
+    <!-- INFO ZONE -->
+    <div class="tab-content " id="pills-tabContent">
+      <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
+            <h1 id="title" class="text-center" >Graph Template (Do NOT Delete!)</h1>
+            <p id="description" class="text-center">This is the template that is used to create the Graph.cy.html file. You can customize the appearance of Graph.cy.html by changing this file. Be careful though! If you make a mistake you could all BREAK the Graph.cy.html file and not be able to see anything.</p>
+
+      </div>
+      <div class="tab-pane fade" id="network" role="tabpanel" aria-labelledby="pills-profile-tab">
+        <h2 class="pt-1">Nodes/Edges</h2><hr class="mt-0">
+        <div id="data"></div>  
+      </div>
+      <div class="tab-pane fade" id="empty" role="tabpanel" aria-labelledby="pills-contact-tab"></div>
+    </div>        
+        
+
+        
+    </div>
+    <!-- Cytoscape Viewer  -->
+    <div id="cy" style="width: 100%; height: 100%; position: absolute; z-index: -1; top: 0px; left: 0px;"></div> 
+</body>
+</html>
+
+
+
+
+<script> var cy = cytoscape({ container: document.getElementById('cy'), 
+  "elements": [
+    {
+      "data": {
+        "id": "9fcbe9d5-1b3b-4268-8bf6-0d1ea52dd9be"
+      },
+      "position": {
+        "x": 420.85482459629304,
+        "y": 382.7928168005727
+      }
+    },
+    {
+      "data": {
+        "id": "51e83203-6324-4815-ab06-c0f5ac026f67"
+      },
+      "position": {
+        "x": 504.8882348261873,
+        "y": 378.79122583724444
+      }
+    },
+    {
+      "data": {
+        "id": "3554f6d4-dc9e-477c-ba11-e32455585452"
+      },
+      "position": {
+        "x": 423.85601781878927,
+        "y": 252.74111049240315
+      }
+    },
+    {
+      "data": {
+        "id": "25478299-e38e-42c1-8607-02f402a5032c"
+      },
+      "position": {
+        "x": 263.7923792856575,
+        "y": 395.7979874313897
+      }
+    },
+    {
+      "data": {
+        "id": "a78a5e22-fde9-4d0c-8e3b-f6422f527b6b"
+      },
+      "position": {
+        "x": 448.86596133959114,
+        "y": 497.8385569962612
+      }
+    },
+    {
+      "data": {
+        "source": "9fcbe9d5-1b3b-4268-8bf6-0d1ea52dd9be",
+        "target": "a78a5e22-fde9-4d0c-8e3b-f6422f527b6b",
+        "id": "979f8906-62ea-434e-a6d8-d273c713bb2d"
+      }
+    },
+    {
+      "data": {
+        "source": "a78a5e22-fde9-4d0c-8e3b-f6422f527b6b",
+        "target": "25478299-e38e-42c1-8607-02f402a5032c",
+        "id": "44af2df0-a3cd-4432-a364-5c019cb7a690"
+      }
+    },
+    {
+      "data": {
+        "source": "25478299-e38e-42c1-8607-02f402a5032c",
+        "target": "3554f6d4-dc9e-477c-ba11-e32455585452",
+        "id": "3ed25d45-b74e-41b2-96fa-ce8992c8cc50"
+      }
+    },
+    {
+      "data": {
+        "source": "9fcbe9d5-1b3b-4268-8bf6-0d1ea52dd9be",
+        "target": "51e83203-6324-4815-ab06-c0f5ac026f67",
+        "id": "fbb39a3e-3cc2-42d7-a5f2-91c132853929"
+      }
+    }
+  ],
+  "style": [
+    {
+      "selector": "node",
+      "style": {
+        "overlay-color": "gray",
+        "overlay-padding": "2px",
+        "background-color": "gray",
+        "text-background-color": "white",
+        "text-border-width": "2px",
+        "text-background-padding": "4px",
+        "z-index-compare": "manual",
+        "z-index": "1",
+        "border-color": "gray",
+        "label": "",
+        "text-rotation": "none",
+        "text-margin-x": "0px",
+        "text-margin-y": "0px",
+        "source-label": "",
+        "source-text-rotation": "none",
+        "source-text-margin-x": "0px",
+        "source-text-margin-y": "0px",
+        "source-text-offset": "0px",
+        "target-label": "",
+        "target-text-rotation": "none",
+        "target-text-margin-x": "0px",
+        "target-text-margin-y": "0px",
+        "target-text-offset": "0px",
+        "text-valign": "top",
+        "text-halign": "center",
+        "color": "#000",
+        "text-outline-color": "#000",
+        "text-outline-width": "0px",
+        "text-outline-opacity": "1",
+        "text-opacity": "1",
+        "text-background-opacity": "0",
+        "text-border-opacity": "0",
+        "text-border-color": "#000",
+        "text-border-style": "solid",
+        "text-background-shape": "rectangle",
+        "text-transform": "none",
+        "text-wrap": "none",
+        "text-max-width": "9999px",
+        "text-events": "no",
+        "font-family": "Helvetica Neue, Helvetica, sans-serif",
+        "font-style": "normal",
+        "font-weight": "normal",
+        "font-size": "16px",
+        "min-zoomed-font-size": "0px",
+        "events": "yes",
+        "display": "element",
+        "visibility": "visible",
+        "opacity": "1",
+        "z-compound-depth": "auto",
+        "transition-property": "none",
+        "transition-duration": "0ms",
+        "transition-delay": "0ms",
+        "transition-timing-function": "linear",
+        "height": "30px",
+        "width": "30px",
+        "shape": "ellipse",
+        "shape-polygon-points": "-1px -1px 1px -1px 1px 1px -1px 1px",
+        "background-opacity": "1",
+        "background-blacken": "0",
+        "padding": "0px",
+        "padding-relative-to": "width",
+        "border-opacity": "1",
+        "border-width": "0px",
+        "border-style": "solid",
+        "background-image-opacity": "1px",
+        "background-position-x": "0.5px",
+        "background-position-y": "0.5px",
+        "background-clip": "node",
+        "position": "origin",
+        "compound-sizing-wrt-labels": "include",
+        "min-width": "0px",
+        "min-width-bias-left": "0px",
+        "min-width-bias-right": "0px",
+        "min-height": "0px",
+        "min-height-bias-top": "0px",
+        "min-height-bias-bottom": "0px",
+        "line-style": "solid",
+        "line-color": "#999",
+        "curve-style": "bezier",
+        "haystack-radius": "0",
+        "source-endpoint": "outside-to-node",
+        "target-endpoint": "outside-to-node",
+        "control-point-step-size": "40px",
+        "control-point-weights": "0.5px",
+        "segment-distances": "20px",
+        "segment-weights": "0.5px",
+        "edge-distances": "intersection",
+        "arrow-scale": "1",
+        "loop-direction": "-0.7853981633974483rad",
+        "loop-sweep": "-1.5707963267948966rad",
+        "source-distance-from-node": "0px",
+        "target-distance-from-node": "0px",
+        "ghost": "no",
+        "ghost-offset-x": "0px",
+        "ghost-offset-y": "0px",
+        "ghost-opacity": "0",
+        "source-arrow-shape": "none",
+        "mid-source-arrow-shape": "none",
+        "target-arrow-shape": "none",
+        "mid-target-arrow-shape": "none",
+        "source-arrow-color": "#999",
+        "mid-source-arrow-color": "#999",
+        "target-arrow-color": "#999",
+        "mid-target-arrow-color": "#999",
+        "source-arrow-fill": "filled",
+        "mid-source-arrow-fill": "filled",
+        "target-arrow-fill": "filled",
+        "mid-target-arrow-fill": "filled",
+        "content": "",
+        "control-point-weight": "0.5px",
+        "edge-text-rotation": "none",
+        "padding-left": "0px",
+        "padding-right": "0px",
+        "padding-top": "0px",
+        "padding-bottom": "0px"
+      }
+    },
+    {
+      "selector": "edge",
+      "style": {
+        "overlay-color": "gray",
+        "overlay-padding": "8px",
+        "line-color": "gray",
+        "curve-style": "bezier",
+        "text-background-color": "white",
+        "text-border-width": "2px",
+        "text-background-padding": "4px",
+        "z-index-compare": "manual",
+        "z-index": "0",
+        "border-color": "gray",
+        "target-arrow-color": "gray",
+        "source-arrow-color": "gray",
+        "label": "",
+        "text-rotation": "none",
+        "text-margin-x": "0px",
+        "text-margin-y": "0px",
+        "source-label": "",
+        "source-text-rotation": "none",
+        "source-text-margin-x": "0px",
+        "source-text-margin-y": "0px",
+        "source-text-offset": "0px",
+        "target-label": "",
+        "target-text-rotation": "none",
+        "target-text-margin-x": "0px",
+        "target-text-margin-y": "0px",
+        "target-text-offset": "0px",
+        "text-valign": "top",
+        "text-halign": "center",
+        "color": "#000",
+        "text-outline-color": "#000",
+        "text-outline-width": "0px",
+        "text-outline-opacity": "1",
+        "text-opacity": "1",
+        "text-background-opacity": "0",
+        "text-border-opacity": "0",
+        "text-border-color": "#000",
+        "text-border-style": "solid",
+        "text-background-shape": "rectangle",
+        "text-transform": "none",
+        "text-wrap": "none",
+        "text-max-width": "9999px",
+        "text-events": "no",
+        "font-family": "Helvetica Neue, Helvetica, sans-serif",
+        "font-style": "normal",
+        "font-weight": "normal",
+        "font-size": "16px",
+        "min-zoomed-font-size": "0px",
+        "events": "yes",
+        "display": "element",
+        "visibility": "visible",
+        "opacity": "1",
+        "z-compound-depth": "auto",
+        "transition-property": "none",
+        "transition-duration": "0ms",
+        "transition-delay": "0ms",
+        "transition-timing-function": "linear",
+        "height": "30px",
+        "width": "3px",
+        "shape": "ellipse",
+        "shape-polygon-points": "-1px -1px 1px -1px 1px 1px -1px 1px",
+        "background-color": "#999",
+        "background-opacity": "1",
+        "background-blacken": "0",
+        "padding": "0px",
+        "padding-relative-to": "width",
+        "border-opacity": "1",
+        "border-width": "0px",
+        "border-style": "solid",
+        "background-image-opacity": "1px",
+        "background-position-x": "0.5px",
+        "background-position-y": "0.5px",
+        "background-clip": "node",
+        "position": "origin",
+        "compound-sizing-wrt-labels": "include",
+        "min-width": "0px",
+        "min-width-bias-left": "0px",
+        "min-width-bias-right": "0px",
+        "min-height": "0px",
+        "min-height-bias-top": "0px",
+        "min-height-bias-bottom": "0px",
+        "line-style": "solid",
+        "haystack-radius": "0",
+        "source-endpoint": "outside-to-node",
+        "target-endpoint": "outside-to-node",
+        "control-point-step-size": "40px",
+        "control-point-weights": "0.5px",
+        "segment-distances": "20px",
+        "segment-weights": "0.5px",
+        "edge-distances": "intersection",
+        "arrow-scale": "1",
+        "loop-direction": "-0.7853981633974483rad",
+        "loop-sweep": "-1.5707963267948966rad",
+        "source-distance-from-node": "0px",
+        "target-distance-from-node": "0px",
+        "ghost": "no",
+        "ghost-offset-x": "0px",
+        "ghost-offset-y": "0px",
+        "ghost-opacity": "0",
+        "source-arrow-shape": "none",
+        "mid-source-arrow-shape": "none",
+        "target-arrow-shape": "none",
+        "mid-target-arrow-shape": "none",
+        "mid-source-arrow-color": "#999",
+        "mid-target-arrow-color": "#999",
+        "source-arrow-fill": "filled",
+        "mid-source-arrow-fill": "filled",
+        "target-arrow-fill": "filled",
+        "mid-target-arrow-fill": "filled",
+        "content": "",
+        "control-point-weight": "0.5px",
+        "edge-text-rotation": "none",
+        "padding-left": "0px",
+        "padding-right": "0px",
+        "padding-top": "0px",
+        "padding-bottom": "0px"
+      }
+    },
+    {
+      "style": {},
+      "selector": "#9fcbe9d5-1b3b-4268-8bf6-0d1ea52dd9be"
+    },
+    {
+      "style": {
+        "line-color": "#0169D9",
+        "source-arrow-color": "#0169D9",
+        "mid-source-arrow-color": "#0169D9",
+        "target-arrow-color": "#0169D9",
+        "mid-target-arrow-color": "#0169D9"
+      },
+      "selector": "#51e83203-6324-4815-ab06-c0f5ac026f67"
+    },
+    {
+      "style": {},
+      "selector": "#3554f6d4-dc9e-477c-ba11-e32455585452"
+    },
+    {
+      "style": {},
+      "selector": "#25478299-e38e-42c1-8607-02f402a5032c"
+    },
+    {
+      "style": {},
+      "selector": "#a78a5e22-fde9-4d0c-8e3b-f6422f527b6b"
+    },
+    {
+      "style": {},
+      "selector": "#979f8906-62ea-434e-a6d8-d273c713bb2d"
+    },
+    {
+      "style": {},
+      "selector": "#44af2df0-a3cd-4432-a364-5c019cb7a690"
+    },
+    {
+      "style": {},
+      "selector": "#3ed25d45-b74e-41b2-96fa-ce8992c8cc50"
+    },
+    {
+      "style": {},
+      "selector": "#fbb39a3e-3cc2-42d7-a5f2-91c132853929"
+    }
+  ],
+  "layout": {
+    "name": "preset"
+  }
+})
+cy.on("select", 'node, edge' , function(){     //<-- highlight node when selected
+    this.style( 'overlay-opacity', .4 );
+});
+cy.on("unselect", 'node, edge' , function(){   //<-- unhighlight when not selected
+    this.style( 'overlay-opacity', 0 );
+});
+
+cy.on('select unselect', 'node, edge', function(event){ 
+    var toFill = document.getElementById("data")
+    toFill.innerHTML = "" //<-- resets values
+    var toAdd = ""        //<-- where we write the html we will add
+
+    if( cy.$(":selected").length == 1 ){ //<-- only run when 1 element's selected
+        var data = cy.$(":selected")[0].data() 
+        for( property in data ){
+            if( property != "id"  &&  data[property] != undefined ){
+                toAdd += "<h6 style='margin-bottom:0px'>"+property+" : </h6>"
+                toAdd += "<p style='color:#2C3E50'><small>"+String(data[property])+"</small></p>"
+            }
+        }
+    }
+    toFill.innerHTML = toAdd
+});
+document.getElementById('title').innerHTML = 'asdfasdf';
+document.getElementById('description').innerHTML = 'adsfasdf';
+ </script>
